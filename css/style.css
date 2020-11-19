@@ -16,63 +16,69 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1.4rem;
   font-weight: 100;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 footer header h1 {
   font-family: shrikhand;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+h3 {
   font-size: 2rem;
 }
 
-header {
+h4 {
+  font-size: 1.6rem;
+}
+
+.header {
   flex-wrap: wrap;
-  width: 100%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1rem;
   line-height: 1.2;
+  /* --- css header page menu ---*/
 }
-header .title {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-header input {
-  margin: 0px 1px;
-  border: none;
-  height: 40px;
-  background: #ececec;
-}
-header h1 {
-  padding: 20px 20px 10px 20px;
-  text-align: center;
-}
-header p {
-  font-weight: 300;
-  font-size: 2rem;
-  padding: 10px;
-  text-align: center;
-}
-header form {
-  width: 100%;
-}
-
-.logo {
+.header__logo {
   display: flex;
   flex-basis: 100%;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.header__logo--menu {
+  display: flex;
+  align-items: center;
+}
+.header__lien {
+  font-size: 2rem;
+}
+.header a {
+  text-decoration: none;
+  color: #000;
+}
+.header--img {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.input_with_icon {
+.form {
+  flex-wrap: wrap;
+  width: 100%;
+}
+.form__with_icon {
   position: relative;
 }
-.input_with_icon input[type=text] {
-  outline: none;
-  width: 100%;
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-align: center;
-}
-.input_with_icon i {
+.form__with_icon i {
   position: absolute;
   width: 100%;
   top: 10px;
@@ -80,8 +86,29 @@ header form {
   color: #000;
   font-size: 1.5rem;
 }
-
-.btn {
+.form__with_icon__input {
+  margin: 0px 1px;
+  border: none;
+  height: 40px;
+  background: #ececec;
+  outline: none;
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+}
+.form__h1 {
+  padding: 20px 20px 10px 20px;
+  text-align: center;
+}
+.form__p {
+  font-weight: 300;
+  font-size: 2rem;
+  padding: 10px;
+  text-align: center;
+}
+.form__btn {
+  width: 250px;
   border: none;
   cursor: pointer;
   outline: none;
@@ -96,17 +123,27 @@ header form {
   margin-right: auto;
   transition-duration: 400ms;
 }
-.btn:hover {
+.form__btn:hover {
   box-shadow: 0px 3px 9px #a8a8a8;
 }
 
-.btn-fct {
+@media screen and (min-width: 561px) and (max-width: 1300px) {
+  .header {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 560px) {
+  .header {
+    width: 100%;
+  }
+}
+.fct {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
 }
-.btn-fct button {
+.fct__btn {
   display: flex;
   align-items: center;
   height: 70px;
@@ -122,22 +159,22 @@ header form {
   cursor: pointer;
   transition: all 400ms;
 }
-.btn-fct button:hover {
+.fct__btn:hover {
   background: rgba(255, 121, 218, 0.15);
   box-shadow: 3px 3px 10px #adadad;
 }
-.btn-fct button:hover i {
+.fct__btn:hover i {
   /* lorsque button est en hover alors <i> est ... */
   color: #9356DC;
 }
-.btn-fct button i {
+.fct__btn i {
   display: flex;
   width: 40px;
   font-size: 2rem;
   margin-left: 25px;
   margin-right: 25px;
 }
-.btn-fct span {
+.fct__btn__number {
   display: flex;
   margin-left: -10px;
   align-items: center;
@@ -150,19 +187,20 @@ header form {
 }
 
 main {
-  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
   display: flex;
-  padding: 2.5rem;
+  padding: 1rem 2.5rem 2.5rem 2.5rem;
 }
 
-section {
+section, .section {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
 }
-section h2 {
-  font-size: 2rem;
+section h2, .section h2 {
   margin-bottom: 20px;
   flex-basis: 100%;
 }
@@ -178,15 +216,14 @@ article {
   margin-bottom: 2rem;
 }
 .item img {
-  height: 200px;
+  height: 400px;
   width: 100%;
   object-fit: cover;
   border-radius: 20px 20px 0px 0px;
 }
-.item a {
+.item__a {
   text-decoration: none;
 }
-
 .item__bottom {
   display: flex;
   justify-content: space-between;
@@ -194,14 +231,13 @@ article {
 }
 .item__bottom h3 {
   color: #000;
-  font-size: 2rem;
 }
 .item__bottom p {
   color: #000;
   font-size: 1.5rem;
   font-weight: 400;
 }
-.item__bottom .heart {
+.item__bottom__heart {
   display: flex;
   align-items: center;
   text-transform: uppercase;
@@ -209,78 +245,145 @@ article {
   margin-right: 15px;
 }
 
+/* --- css page menu ----*/
+.container__top img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}
+
+.container__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: -30px;
+  width: 100%;
+  border-radius: 20px;
+  background: #fff;
+  padding: 20px;
+}
+.container__bottom__tittle {
+  width: 90%;
+}
+.container__bottom__heart {
+  width: 5%;
+  font-size: 2.5rem;
+}
+
+.menu__title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: #99E2D0;
+}
+
+.menu {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.menu__heart {
+  font-size: 2rem;
+}
+.menu__item {
+  width: 32%;
+}
+.menu__item__price {
+  font-weight: 700;
+}
+.menu__item__btn {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: none;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px #d3d3d3;
+  margin-bottom: 30px;
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
+}
+.menu__item__btn h3 {
+  flex-basis: 100%;
+  text-align: left;
+}
+.menu__item__btn h4 {
+  font-weight: 400;
+}
+.menu__item__btn p {
+  font-size: 1.6rem;
+}
+
+span {
+  font-weight: 700;
+}
+
+@media screen and (min-width: 561px) and (max-width: 1300px) {
+  main {
+    width: 100%;
+  }
+
+  .fct__btn {
+    width: 100%;
+  }
+  .fct__btn button i {
+    margin-right: 10px;
+  }
+
+  /* --- css page menu --- */
+  .menu__item {
+    width: 100%;
+  }
+
+  .container__top img {
+    height: 400px;
+    object-fit: cover;
+  }
+}
 @media screen and (min-width: 320px) and (max-width: 560px) {
+  main {
+    width: 100%;
+  }
+
   article {
     width: 100%;
   }
 
-  .btn-fct button {
+  .item img {
+    height: 200px;
+  }
+
+  .fct__btn {
     width: 100%;
   }
-  .btn-fct button i {
+  .fct__btn button i {
     margin-right: 10px;
   }
-}
-/* test animation loading spinner
-.custom-loading{
-    width: 100%;
-    heigth:100%;
-    position: relative;
-}
-.custom-loading-spinner {
-    cursor: progress;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-.custom-loading-spinner::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10001;
-    overflow: hidden;
-    background: #8b8b8b;
-    opacity: 0.95;
-    border-radius: 20px;
-}
-.custom-loading-spinner::after {
-    z-index: 10002;
-    content: "";
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    margin: -25px 0 0 -25px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid $colour-primary;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: custom-loading 1s linear infinite;
 
-}
-@keyframes custom-loading {
-    0%{
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
+  /* --- css page menu --- */
+  .container__top img {
+    height: 300px;
+    object-fit: cover;
+  }
 
-    100%{
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+  .menu__item {
+    width: 100%;
+  }
 }
-*/
 footer {
   background: #3d3d3d;
+  padding-left: 15%;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding: 20px;
+  padding-top: 10px;
 }
 footer .logo_footer {
   flex-basis: 100%;
@@ -302,6 +405,17 @@ footer a {
 }
 footer i {
   width: 25px;
+}
+
+@media screen and (min-width: 561px) and (max-width: 1300px) {
+  footer {
+    padding: 15px;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 560px) {
+  footer {
+    padding: 15px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
