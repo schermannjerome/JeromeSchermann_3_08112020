@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/* ---------- css generalités ---------*/
 *, *::after, *::before {
   box-sizing: inherit;
   margin: 0;
@@ -10,8 +12,12 @@ html {
 
 body {
   box-sizing: border-box;
+  position: relative;
+  z-index: 10001;
 }
 
+/* -------------- fin css generalités ----------*/
+/* ---------- css typographie ----------- */
 body {
   font-family: "Roboto", sans-serif;
   font-size: 1.4rem;
@@ -21,6 +27,13 @@ body {
 
 footer header h1 {
   font-family: shrikhand;
+}
+
+.container__bottom__tittle {
+  font-family: shrikhand;
+}
+.container__bottom__tittle h2 {
+  font-size: 2.8rem;
 }
 
 h1 {
@@ -39,6 +52,8 @@ h4 {
   font-size: 1.6rem;
 }
 
+/*-------- fin css typogrphie -----------*/
+/* --------------- css du header --------------*/
 .header {
   flex-wrap: wrap;
   width: 80%;
@@ -46,7 +61,6 @@ h4 {
   margin-right: auto;
   padding: 1rem;
   line-height: 1.2;
-  /* --- css header page menu ---*/
 }
 .header__logo {
   display: flex;
@@ -56,6 +70,7 @@ h4 {
   margin-bottom: 1.5rem;
 }
 .header__logo--menu {
+  /* --- css header page des menus ---*/
   display: flex;
   align-items: center;
 }
@@ -69,6 +84,7 @@ h4 {
 .header--img {
   margin-left: auto;
   margin-right: auto;
+  /* ---------- css fin header page des menus ---*/
 }
 
 .form {
@@ -137,6 +153,8 @@ h4 {
     width: 100%;
   }
 }
+/* --------------- fin css  header -----------*/
+/* ---- css page index -----*/
 .fct {
   width: 100%;
   display: flex;
@@ -209,11 +227,30 @@ article {
   width: 48%;
 }
 
+.new__sticker {
+  background-color: #99E2D0;
+  color: #32b091;
+  border-radius: 3px;
+  height: 35px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.new__sticker span {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
 .item {
   width: 100%;
   border-radius: 20px;
   box-shadow: 2px 2px 10px #d3d3d3;
   margin-bottom: 2rem;
+  position: relative;
 }
 .item img {
   height: 400px;
@@ -228,6 +265,7 @@ article {
   display: flex;
   justify-content: space-between;
   padding: 0rem 2rem 1rem;
+  color: #000;
 }
 .item__bottom h3 {
   color: #000;
@@ -245,7 +283,127 @@ article {
   margin-right: 15px;
 }
 
-/* --- css page menu ----*/
+/*----- Css selection favorite -------------*/
+@keyframes fondu_heart {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.item__bottom__favorite {
+  padding-top: 20px;
+  position: relative;
+}
+
+.item__bottom__favorite .item__bottom__heart .fa-heart {
+  color: #3f3f3f;
+}
+
+.item__bottom__favorite--select {
+  position: absolute;
+  font-size: 2.5rem;
+  top: 15px;
+  opacity: 0;
+}
+
+.item__bottom__favorite--select .fa-heart::before {
+  background: linear-gradient(to bottom, #9356DC, #FF79DA);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -webkit-linear-gradient(to bottom, #9356DC, #FF79DA);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -moz-linear-gradient(to bottom, #9356DC, #FF79DA);
+  /* Chrome10-25,Safari5.1-6 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.item__bottom__favorite:hover .item__bottom__favorite--select {
+  animation: fondu_heart 1800ms;
+  animation-fill-mode: forwards;
+}
+
+.item__bottom__favorite:hover .item__bottom__heart {
+  opacity: 0;
+  transition: opacity 1800ms;
+}
+
+/* --- css animation spinner loading  --------- */
+.custom-loading {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  animation-name: custom;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.custom-loading-spinner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.custom-loading-spinner::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: hidden;
+  background: #e2d2f7;
+  opacity: 0.6;
+  border-radius: 20px;
+  transition-property: all;
+  animation-name: custom-loading;
+}
+
+.custom-loading-spinner::after {
+  z-index: 2;
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  border: 7px solid #f3f3f3;
+  border-top: 7px solid #9356DC;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: custom-loading 1s linear infinite;
+}
+
+@keyframes custom {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    visibility: hidden;
+  }
+}
+@keyframes custom-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ------------- css page menu ----------------*/
+@keyframes fondu {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 .container__top img {
   width: 100%;
   height: 700px;
@@ -271,6 +429,7 @@ article {
 }
 
 .menu__title::after {
+  /* --- soulignement des titres ---*/
   content: "";
   display: block;
   width: 50px;
@@ -289,14 +448,20 @@ article {
 }
 .menu__item {
   width: 32%;
+  display: flex;
+  justify-content: flex-start;
 }
 .menu__item__price {
   font-weight: 700;
+  width: 10%;
+  display: flex;
+  align-items: flex-end;
 }
 .menu__item__btn {
+  animation: fondu 3s 300ms;
+  animation-fill-mode: backwards;
+  position: relative;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
   height: 70px;
   width: 100%;
   font-size: 1.8rem;
@@ -308,36 +473,85 @@ article {
   margin-bottom: 30px;
   padding: 10px;
   outline: none;
-  cursor: pointer;
+  position: relative;
+  transform-origin: 60%;
+  transition: 800ms;
 }
-.menu__item__btn h3 {
-  flex-basis: 100%;
+.menu__item__btn:hover .menu__item__title {
+  width: 70%;
+  transition: 800ms;
+}
+.menu__item__btn:hover .menu__item--select {
+  transform: scaleX(1);
+  opacity: 1;
+}
+.menu__item__btn:hover .fa-check-circle {
+  transform: rotate(-360deg);
+  transition: transform 800ms;
+}
+.menu__item__title {
+  width: 90%;
+}
+.menu__item__title h3 {
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.menu__item__btn h4 {
+.menu__item__title h4 {
+  width: 70%;
   font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.menu__item__btn p {
+.menu__item__title p {
   font-size: 1.6rem;
 }
 
-span {
-  font-weight: 700;
+.item__bottom__favorite {
+  margin-top: -15px;
 }
 
+.menu__item--select {
+  display: flex;
+  width: 70px;
+  height: 70px;
+  margin-top: -10px;
+  background: #99E2D0;
+  border-radius: 0px 20px 20px 0px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform 800ms;
+  transform-origin: right 50%;
+  position: absolute;
+  right: 0px;
+}
+.menu__item--select .fa-check-circle {
+  color: #fff;
+  font-size: 3rem;
+}
+
+/* ---- media queries ----*/
 @media screen and (min-width: 561px) and (max-width: 1300px) {
   main {
+    /* compatible toute page --*/
     width: 100%;
   }
 
   .fct__btn {
+    /* ---- page index ---- */
     width: 100%;
   }
   .fct__btn button i {
     margin-right: 10px;
   }
 
-  /* --- css page menu --- */
+  .menu {
+    /* ------------ page des menus menu ----------*/
+  }
   .menu__item {
     width: 100%;
   }
@@ -356,10 +570,6 @@ span {
     width: 100%;
   }
 
-  .item img {
-    height: 200px;
-  }
-
   .fct__btn {
     width: 100%;
   }
@@ -367,16 +577,24 @@ span {
     margin-right: 10px;
   }
 
-  /* --- css page menu --- */
   .container__top img {
     height: 300px;
     object-fit: cover;
   }
 
+  .item img {
+    height: 200px;
+  }
+
   .menu__item {
     width: 100%;
   }
+
+  .container__bottom__tittle {
+    width: 70%;
+  }
 }
+/* ------------- css footer --------*/
 footer {
   background: #3d3d3d;
   padding-left: 15%;

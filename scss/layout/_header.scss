@@ -1,3 +1,4 @@
+/* --------------- css du header --------------*/
 .header{
     flex-wrap: wrap;
     width: 80%;
@@ -12,12 +13,12 @@
         justify-content: center;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem; 
-        &--menu{
+        &--menu{/* --- css header page des menus ---*/
             display: flex;
             align-items: center;
         }
     }
-    /* --- css header page menu ---*/
+    
     &__lien{
         font-size: 2rem;
     }
@@ -28,7 +29,8 @@
     &--img{
         margin-left: auto;
         margin-right: auto;
-    }
+        /* ---------- css fin header page des menus ---*/
+    } 
 }
 .form{
     flex-wrap: wrap;
@@ -96,3 +98,5 @@
         width: 100%;
     }
 }
+
+/* --------------- fin css  header -----------*/
