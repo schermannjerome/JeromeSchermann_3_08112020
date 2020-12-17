@@ -338,6 +338,7 @@ article {
   animation-name: custom;
   animation-duration: 3s;
   animation-fill-mode: forwards;
+  /*--- etat a la fin de la transition ---*/
 }
 
 .custom-loading-spinner {
@@ -404,7 +405,7 @@ article {
     transform: translateY(0px);
   }
 }
-.container__top img {
+.img__menu {
   width: 100%;
   height: 700px;
   object-fit: cover;
